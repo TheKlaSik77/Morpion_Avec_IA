@@ -1,4 +1,4 @@
-from modele.grille import Grille
+from modele.Grille import Grille
 import unittest
 
 class TestGrille(unittest.TestCase):

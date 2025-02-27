@@ -1,5 +1,5 @@
-from modele.grille import Grille
-from modele.joueur import Joueur
+from modele.Grille import Grille
+from modele.Joueur import Joueur
 
 
 class Partie:
