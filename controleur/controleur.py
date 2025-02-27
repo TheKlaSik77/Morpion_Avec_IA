@@ -1,5 +1,5 @@
 from modele.partie import Partie
-from vue.Vue_Console import Vue_Console
+from vue.vue_console import Vue_Console
 
 class Controleur:
 
