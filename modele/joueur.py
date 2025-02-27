@@ -1,4 +1,3 @@
-
 class Joueur:
 
     def __init__(self,numero_joueur):
@@ -6,13 +5,7 @@ class Joueur:
         pass
 
     def joue(self, grille, ligne, colonne):
-        if grille.poser_coup(ligne,colonne,self.numero_joueur):
-            print(f'Joueur {self.numero_joueur} joue en [{ligne},{colonne}]')
-            return True
-        else:
-            return False
+        raise NotImplementedError("Cette méthode doit être implémentée par une sous-classe.")
 
     def gagne(self,grille):
         return grille.a_gagne(self.numero_joueur)
-
-
