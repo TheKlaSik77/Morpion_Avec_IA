@@ -1,9 +1,10 @@
-
+from controleur.controleur import Controleur
 
 def main():
-    # Crée une instance de Controller et execute controller.lancement()
-    print("hello")
-    pass
+    # vues possibles : "console" et "interface"
+    vue_choisie = "console"
+    controleur = Controleur(vue_choisie)
+    controleur.deroulement()
 
 if __name__ == "__main__":
 
