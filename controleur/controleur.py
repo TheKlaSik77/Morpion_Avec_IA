@@ -12,6 +12,7 @@ class Controleur:
         """
         Déroule la partie jusqu'à la fin
         """
+        self.vue.afficher_grille(self.partie.grille.get_grille())
         tour = 1
         while not self.partie.partie_terminee():
             # On met à jour le joueur en cours
@@ -21,7 +22,7 @@ class Controleur:
             while not coup_valide:
                 ligne, colonne = self.coup_choisi()
                 coup_valide = self.partie.joueur_joue(ligne, colonne, numero_joueur_en_cours)
-            print(self.vue.afficher_grille(self.partie.grille.get_grille()))
+            self.vue.afficher_grille(self.partie.grille.get_grille())
             tour += 1
 
     def coup_choisi(self):

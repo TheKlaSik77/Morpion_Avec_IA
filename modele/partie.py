@@ -1,5 +1,5 @@
 from modele.grille import Grille
-from modele.joueur import Joueur
+from modele.humain import Humain
 
 
 class Partie:
@@ -8,12 +8,12 @@ class Partie:
         if nb_joueurs == 1:
             pass
             self.grille = Grille()
-            self.joueur1 = Joueur(1)
+            self.joueur1 = Humain(1)
             #self.joueur2 = IA()
         else :
             self.grille = Grille()
-            self.joueur1 = Joueur(1)
-            self.joueur2 = Joueur(2)
+            self.joueur1 = Humain(1)
+            self.joueur2 = Humain(2)
 
     def joueur_joue(self,ligne,colonne,numero_joueur):
         if numero_joueur == 1:

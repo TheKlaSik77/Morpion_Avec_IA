@@ -1,8 +1,5 @@
-from modele.ia import IA
-from modele.joueur import Joueur
 
-
-class IA_Difficile (Joueur):
+class IA_Difficile :
 
     def __init__(self):
         pass

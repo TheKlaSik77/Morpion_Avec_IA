@@ -1,8 +1,8 @@
-from modele.joueur import Joueur
 
-class Humain (Joueur):
+class Humain:
 
-    # Pas de def __init__ car memes attributs que Joueur
+    def __init__(self,numero_joueur):
+        self.numero_joueur = numero_joueur
 
     def joue(self, grille, ligne, colonne):
         if grille.poser_coup(ligne,colonne,self.numero_joueur):

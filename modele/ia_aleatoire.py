@@ -1,6 +1,5 @@
-from modele.ia import IA
 
-class IA_Aleatoire (IA):
+class IA_Aleatoire:
 
     def __init__(self):
         pass
