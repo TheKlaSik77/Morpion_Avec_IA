@@ -1,10 +1,10 @@
-from controleur.controleur import Controleur
+from controleur.partie import Partie
 
 def main():
-    # vues possibles : "console" et "interface"
-    vue_choisie = "console"
-    controleur = Controleur(vue_choisie)
-    controleur.deroulement()
+    # vues possibles : "Console" et "Interface"
+    type_vue = "Console"
+    partie = Partie(1,type_vue)
+    partie.derouler_partie()
 
 if __name__ == "__main__":
 

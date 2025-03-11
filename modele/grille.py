@@ -16,16 +16,12 @@ class Grille:
         """
         self.grille = nouvelle_grille
 
-    def poser_coup(self,ligne,colonne,numero_joueur):
+    def poser_coup(self,coup,numero_joueur):
         """
         Pose le coup de 'numero_joueur'
         Remplace la case grille[ligne][colonne] par numero_joueur'numero_joueur'
         """
-        if self.grille[ligne][colonne] == 0:
-            self.grille[ligne][colonne] = numero_joueur
-            return True
-        else :
-            return False
+        self.grille[coup.ligne][coup.colonne] = numero_joueur
 
     def a_gagne(self,numero_joueur):
         """
@@ -62,3 +58,22 @@ class Grille:
 
     def get_grille(self):
         return self.grille
+
+    def get_emplacements_cases_vides(self):
+        """
+        Retourne la liste de tous les emplacements dont la case est vide sur la grille
+        """
+        liste_emplacements_cases_vides = []
+        for i in range (3):
+            for j in range(3):
+                if self.grille[i][j] == 0:
+                    liste_emplacements_cases_vides.append((i,j))
+        return liste_emplacements_cases_vides
+
+    def emplacement_est_vide(self,coup):
+        """
+        Teste si le joueur peut jouer à l'emplacement envoyé
+        """
+        if (coup.ligne,coup.colonne) in self.get_emplacements_cases_vides():
+            return True
+        return False
