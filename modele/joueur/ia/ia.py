@@ -1,4 +1,4 @@
-from joueur.joueur import Joueur
+from modele.joueur.joueur import Joueur
 
 
 class IA(Joueur):

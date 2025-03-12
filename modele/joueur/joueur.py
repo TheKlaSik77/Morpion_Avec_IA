@@ -3,6 +3,7 @@ class Joueur:
 
     def __init__(self, nom, numero_joueur):
         self.nom = nom
+        self.numero_joueur = numero_joueur
 
     def envoyer_coup_a_partie(self,grille):
         """

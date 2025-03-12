@@ -1,5 +1,5 @@
 import random
-from joueur.ia.ia import IA
+from modele.joueur.ia.ia import IA
 from modele.coup import Coup
 
 class IA_Aleatoire(IA):

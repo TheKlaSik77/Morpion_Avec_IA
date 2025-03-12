@@ -1,5 +1,5 @@
-import joueur.vue.vue_joueur as vue
-from joueur.joueur import Joueur
+from modele import joueur as vue
+from modele.joueur.joueur import Joueur
 from exception.vue_non_definie_error import VueNonDefinieError
 
 class Humain(Joueur):
