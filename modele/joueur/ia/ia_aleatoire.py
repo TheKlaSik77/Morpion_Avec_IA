@@ -15,5 +15,5 @@ class IA_Aleatoire(IA):
         """
         liste_emplacements_vides = grille.get_emplacements_cases_vides()
         index_aleatoire = random.randint(0, len(liste_emplacements_vides) - 1)
-        return Coup(liste_emplacements_vides[index_aleatoire])
+        return Coup(liste_emplacements_vides[index_aleatoire],self.numero_joueur)
 

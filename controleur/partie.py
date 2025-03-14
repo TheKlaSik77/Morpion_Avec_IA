@@ -44,7 +44,7 @@ class Partie:
                 coup = self.get_joueur(numero_joueur_en_cours).envoyer_coup_a_partie(self.grille)
                 coup_est_valide = self.grille.emplacement_est_vide(coup)
 
-            self.grille.poser_coup(coup,numero_joueur_en_cours)
+            self.grille.poser_coup(coup)
             self.appeler_affichage_grille()
             tour += 1
 

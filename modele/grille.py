@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
+
 class Grille:
 
     def __init__(self):
@@ -16,12 +17,12 @@ class Grille:
         """
         self.grille = nouvelle_grille
 
-    def poser_coup(self,coup,numero_joueur):
+    def poser_coup(self,coup):
         """
         Pose le coup de 'numero_joueur'
         Remplace la case grille[ligne][colonne] par numero_joueur'numero_joueur'
         """
-        self.grille[coup.ligne][coup.colonne] = numero_joueur
+        self.grille[coup.ligne][coup.colonne] = coup.numero_joueur
 
     def a_gagne(self,numero_joueur):
         """

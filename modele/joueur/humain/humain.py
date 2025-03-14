@@ -1,4 +1,4 @@
-from modele import joueur as vue
+import modele.joueur.vue.vue_joueur as vue
 from modele.joueur.joueur import Joueur
 from exception.vue_non_definie_error import VueNonDefinieError
 
@@ -24,7 +24,7 @@ class Humain(Joueur):
         if self.vue is None or (self.vue != "Console" and self.vue != "Interface"):
             raise VueNonDefinieError()
         if self.vue == "Console":
-            return vue.saisir_coup_terminal()
+            return vue.saisir_coup_terminal(self.numero_joueur)
 
 
 

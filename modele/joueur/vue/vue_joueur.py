@@ -14,15 +14,15 @@ def traitement_entree(entree):
     return ligne, colonne
 
 
-def saisir_coup_terminal():
+def saisir_coup_terminal(numero_joueur):
     """
     Teste si le format du coup est valide, redemande un input tant qu'il ne l'est pas, puis renvoie le coup
     :return: (numéro de ligne, numéro de colonne)
     """
     entree = input("Entrer la ligne puis la colonne (exemple : A2) : ")
-    coup = traitement_entree(entree)
-    while not coup:
+    tupple_coup = traitement_entree(entree)
+    while not tupple_coup:
         print('Entrée incorrecte! Veuillez réessayer \n')
         entree = input("Entrer la ligne puis la colonne (exemple : A2) : ")
-        coup = traitement_entree(entree)
-    return Coup(coup)
+        tupple_coup = traitement_entree(entree)
+    return Coup(tupple_coup,numero_joueur)
