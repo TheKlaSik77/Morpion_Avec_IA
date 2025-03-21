@@ -12,6 +12,7 @@ def croix_ou_rond(nombre):
             return 'O'
 
 def afficher_grille(grille):
+    grille = grille.grille
     ligne0 = "    1   2   3\n"
     ligne1 = f"A\t{croix_ou_rond(grille[0][0])} | {croix_ou_rond(grille[0][1])} | {croix_ou_rond(grille[0][2])} \n"
     ligne2 = "   ------------\n"

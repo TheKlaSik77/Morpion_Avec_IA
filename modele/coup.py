@@ -8,6 +8,8 @@ class Coup:
         self.colonne = tupple_coup[1]
         self.numero_joueur = numero_joueur
 
+    def __str__(self):
+        return f'Joueur {self.numero_joueur} joue en ({self.ligne},{self.colonne})'
     def get_ligne(self):
         return self.ligne
 

@@ -26,3 +26,13 @@ def saisir_coup_terminal(numero_joueur):
         entree = input("Entrer la ligne puis la colonne (exemple : A2) : ")
         tupple_coup = traitement_entree(entree)
     return Coup(tupple_coup,numero_joueur)
+
+def saisir_difficulte_ia(vue):
+    if vue == "Console":
+        entree = input("Entrez 1 pour une IA aléatoire ou 2 pour une IA imbattable : ")
+        return int(entree)
+
+def saisir_joue_en_1_ou_2(vue):
+    if vue == "Console":
+        entree = input("Entrez 1 pour être joueur 1 ou 2 pour être joueur 2 : ")
+        return int(entree)

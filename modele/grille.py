@@ -11,6 +11,12 @@ class Grille:
             [0,0,0]
         ]
 
+    def __eq__(self, other):
+        if self.grille == other.grille:
+            return True
+        else:
+            return False
+
     def set_grille(self,nouvelle_grille):
         """
         Modifie la grille avec nouvelle_grille

@@ -12,3 +12,10 @@ class Joueur:
         :return: un coup viable qui sera ensuite vérifié par la partie
         """
         raise NotImplementedError("Fonction doit être implémentée dans classes filles")
+
+
+    def est_joueur(self,numero_joueur):
+        if numero_joueur == self.numero_joueur:
+            return True
+        else:
+            return False

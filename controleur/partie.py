@@ -2,8 +2,10 @@ from modele.grille import Grille
 from modele.joueur.humain.humain import Humain
 from modele.joueur.ia.ia_aleatoire import IA_Aleatoire
 import vue.vue_console as console
+import modele.joueur.vue.vue_joueur as vue_joueur
 from exception.vue_incorrecte import VueIncorrecte
 from exception.numero_joueur_incorrect import NumeroJoueurIncorrect
+from modele.joueur.ia.ia_difficile import IA_Difficile
 
 
 class Partie:
@@ -15,10 +17,17 @@ class Partie:
         """
         self.grille = Grille()
         if nb_joueurs == 1:
-            self.joueur1 = Humain("Joueur 1",1)
-            self.joueur1.set_vue(type_vue)
+            joue_en_1_ou_2 = vue_joueur.saisir_joue_en_1_ou_2(type_vue)
+            self.joueur = Humain("Joueur",joue_en_1_ou_2)
+            self.joueur.set_vue(type_vue)
 
-            self.joueur2 = IA_Aleatoire(2)
+            difficulte = vue_joueur.saisir_difficulte_ia(type_vue)
+            numero_joueur_ia = 1 if joue_en_1_ou_2 == 2 else 2
+            if difficulte == 1:
+                self.ia = IA_Aleatoire(numero_joueur_ia)
+            else:
+                self.ia = IA_Difficile(numero_joueur_ia)
+
         else :
             self.joueur1 = Humain("Joueur 1",1)
             self.joueur1.set_vue(type_vue)
@@ -34,9 +43,9 @@ class Partie:
         while not self.partie_terminee():
             # On met à jour le joueur en cours
             numero_joueur_en_cours = 1 if tour % 2 != 0 else 2
-
             # Le joueur joue et on teste si son coup est valide
             coup = self.get_joueur(numero_joueur_en_cours).envoyer_coup_a_partie(self.grille)
+
             coup_est_valide = self.grille.emplacement_est_vide(coup)
 
             while not coup_est_valide:
@@ -48,20 +57,18 @@ class Partie:
             self.appeler_affichage_grille()
             tour += 1
 
-    def get_joueur(self,numero_joueur):
-        if numero_joueur == 1:
-            return self.joueur1
-        elif numero_joueur == 2:
-            return self.joueur2
+    def get_joueur(self,numero_joueur_en_cours):
+        if self.joueur.est_joueur(numero_joueur_en_cours):
+            return self.joueur
         else:
-            raise NumeroJoueurIncorrect()
+            return self.ia
 
     def appeler_affichage_grille(self):
         """
         Affiche la vue correspondante selon le type_vue
         """
         if self.type_vue == "Console":
-            console.afficher_grille(self.grille.get_grille())
+            console.afficher_grille(self.grille)
         else:
             raise VueIncorrecte()
 
@@ -80,10 +87,10 @@ class Partie:
         :return:
         """
         if self.grille.a_gagne(1):
-            print(f"Victoire de {self.joueur1.nom}")
+            print(f"Victoire des croix")
             return True
         elif self.grille.a_gagne(2):
-            print(f"Victoire de {self.joueur2.nom}")
+            print(f"Victoire des ronds")
             return True
         elif self.grille.est_nulle():
             print("Match nul")
